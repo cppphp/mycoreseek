@@ -1,0 +1,8 @@
+#编译mmseg
+#yum install libtool.x86_64
+./bootstrap
+#export CFLAGS="-g -O0"
+#export CXXFLAGS="-g -O0"
+./configure --prefix=/usr/local/mmseg --enable-static --enable-shared --with-pic
+make
+make install

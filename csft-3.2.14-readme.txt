@@ -1,0 +1,14 @@
+1、编译sphinx
+./buildconf.sh
+#export CFLAGS="-g -O0"
+#export CXXFLAGS="-g -O0"
+./configure --prefix=/usr/local/csft/ --with-debug --with-mmseg --with-mmseg-includes=/usr/local/mmseg/include/mmseg/ --with-mmseg-libs=/usr/local/mmseg/lib/ --with-iconv
+make
+make install
+
+
+2、打开系统的coredump限制，将文件放入/var/crash/目录
+在/etc/profile中加入：
+ulimit -c unlimited
+echo "/var/crash/coredump.%e.%t" > /proc/sys/kernel/core_pattern
+
